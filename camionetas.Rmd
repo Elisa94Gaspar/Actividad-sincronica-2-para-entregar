@@ -1,0 +1,207 @@
+---
+title: "Camionetas"
+author: "Elisa Gaspar"
+date: "2024-04-10"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(readr)
+camionetas <- read_csv("~/Diplomatura UNPA-YPF/Módulo III/Clase 10 Abril/camionetas.csv")
+View(camionetas)
+```
+
+
+```{r}
+head (camionetas$drat)
+
+```
+
+
+```{r}
+head(camionetas)
+
+```
+```{r}
+tail(camionetas$drat)
+
+
+```
+```{r}
+tail(camionetas)
+
+```
+```{r}
+
+mean(camionetas$mpg)
+
+```
+
+
+```{r}
+mean(camionetas$cyl)
+```
+
+
+```{r}
+class(camionetas)
+
+```
+
+
+```{r}
+library(readr)
+camionetas <- read_csv("~/Diplomatura UNPA-YPF/Módulo III/Clase 10 Abril/camionetas.csv")
+View(camionetas)
+```
+
+
+```{r}
+class(camionetas)
+```
+
+```{r}
+camionetas <- na.omit(camionetas)
+camionetas
+
+```
+
+
+```{r}
+mean(camionetas$mpg)
+
+```
+
+
+```{r}
+camionetas1 <- camionetas[,c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)]
+
+camionetas1
+```
+
+```{r}
+sapply(camionetas1, function(x) mean(x))
+
+```
+
+```{r}
+mean(camionetas$...16, na.rm = T)
+
+```
+
+```{r}
+mean(camionetas$...17, na.rm = T)
+
+```
+```{r}
+camionetas2 <- camionetas[,c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)]
+
+camionetas2
+```
+
+
+
+```{r}
+sapply(camionetas2, function(x) sd(x))
+
+```
+```{r}
+sd(camionetas$...16, na.rm = T)
+
+```
+```{r}
+sd(camionetas$...17, na.rm = T)
+```
+
+```{r}
+summary(camionetas)
+```
+
+```{r}
+plot(camionetas$mpg, camionetas$cyl)
+```
+
+
+
+```{r}
+par(mfrow=c(2,2))
+hist(camionetas$mpg)
+hist(camionetas$cyl)
+hist(camionetas$disp)
+hist(camionetas$hp)
+hist(camionetas$drat)
+hist(camionetas$wt)
+hist(camionetas$qsec)
+hist(camionetas$vs)
+hist(camionetas$am)
+hist(camionetas$gear)
+hist(camionetas$carb)
+hist(camionetas$...13)
+hist(camionetas$...14)
+hist(camionetas$...15)
+hist(camionetas$...16)
+hist(camionetas$...17)
+
+```
+
+```{r}
+par(mfrow=c(2,2))
+plot(density(camionetas$mpg))
+plot(density(camionetas$cyl))
+plot(density(camionetas$disp))
+plot(density(camionetas$hp))
+plot(density(camionetas$drat))
+plot(density(camionetas$wt))
+plot(density(camionetas$qsec))
+plot(density(camionetas$vs))
+plot(density(camionetas$am))
+plot(density(camionetas$gear))
+plot(density(camionetas$carb))
+plot(density(camionetas$...13))
+plot(density(camionetas$...14))
+plot(density(camionetas$...15))
+plot(density(camionetas$...16, na.rm = T))
+plot(density(camionetas$...17, na.rm = T))
+
+```
+
+```{r}
+
+boxplot(camionetas2)
+```
+
+```{r}
+boxplot(camionetas$...16, camionetas$...17)
+```
+
+```{r}
+boxplot(camionetas$mpg, camionetas$cyl, camionetas$disp, camionetas$hp, camionetas$drat, camionetas$wt, camionetas$qsec, camionetas$vs, camionetas$am, camionetas$gear, camionetas$carb, camionetas$...13, camionetas$...14, camionetas$...15, camionetas$...16, camionetas$...17)
+
+
+```
+
+```{r}
+library(tidyr)
+mtcars_long <- pivot_longer(camionetas, c("mpg", "disp", "hp", "qsec"))
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(mtcars_long, aes(x = value, fill= name)) + geom_boxplot()
+
+```
+```{r}
+plot(camionetas[, 2:4])
+```
+
+```{r}
+library(GGally)
+```
+
